@@ -1,0 +1,550 @@
+#card {
+  height: 500px;
+  width: 800px;
+  margin: 5em auto;
+  position: fixed;
+  top: -15px;
+  left: 25%;
+  display: flex;
+  visibility: hidden;
+}
+
+#card h2 {
+  font-size: 3em;
+  margin: 0;
+  color: pink;
+  text-align: center;
+}
+
+#card p {
+  font-size: 1.5em;
+  text-align: justify;
+  padding-left: 30px; /* Espacio en blanco a la izquierda */
+  padding-right: 30px; /* Espacio en blanco a la derecha */
+}
+
+.side {
+  background: #eee;
+  height: 550px;
+  width: 400px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.side.one {
+  width: 320px;
+  transform: skew(10deg, 20deg);
+  background: linear-gradient(90deg, #fff, #fff 40%, #ddd);
+}
+
+.side.two {
+  transform: skew(10deg, -15deg);
+  background: linear-gradient(-90deg, #fff, #fff 40%, #f0f0f0);
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: 'Sacramento', cursive;
+  background-color: #f1e3d3;
+  overflow: hidden;
+}
+
+
+.valentines-day {
+  position: relative;
+  cursor: pointer;
+}
+
+.envelope {
+  position: relative;
+  filter: drop-shadow(0 0 25px rgba(0, 0, 0, .3));
+}
+
+.envelope:before {
+  content: "";
+  position: absolute;
+  width: 254px;
+  height: 254px;
+  background-color: #ff9494;
+  transform: rotate(-45deg);
+  border-radius: 0 15px 0 0;
+  left: -37px;
+  top: -82px;
+}
+
+.envelope:after {
+  content: "";
+  position: absolute;
+  background-color: #ff9494;
+  width: 360px;
+  height: 225px;
+  left: -90px;
+  top: 45px;
+}
+
+.heart {
+  position: relative;
+  background-color: #e01911;
+  display: inline-block;
+  height: 180px;
+  top: 50px;
+  left: 0;
+  transform: rotate(-45deg);
+  width: 180px;
+  filter: drop-shadow(0 -10px 25px rgba(0, 0, 0, .3));
+  transition: .5s;
+}
+
+.heart:before, .heart:after {
+  content: "";
+  background-color: #e01911;
+  border-radius: 50%;
+  height: 180px;
+  width: 180px;
+  position: absolute;
+}
+
+.heart:before {
+  top: -100px;
+  left: 0;
+}
+
+.heart:after {
+  left: 100px;
+  top: 0;
+}
+
+.front {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-right: 190px solid #fbd2d2;
+  border-top: 113px solid transparent;
+  border-bottom: 113px solid transparent;
+  top: 44px;
+  left: 80px;
+  z-index: 4;
+}
+
+.front:before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 190px solid #fbd2d2;
+  border-top: 113px solid transparent;
+  border-bottom: 113px solid transparent;
+  top: -113px;
+  left: -170px;
+}
+
+.front:after {
+  width: 0;
+  height: 0;
+  position: absolute;
+  content: "";
+  border-bottom: 150px solid #fce7e9;
+  border-right: 180px solid transparent;
+  border-left: 180px solid transparent;
+  top: -36px;
+  left: -170px;
+}
+
+.text {
+  position: absolute;
+  font-family: arial;
+  letter-spacing: 5px;
+  text-align: center;
+  color: white;
+  z-index: 2;
+  top: 80px;
+  left: 15px;
+  transition: .5s;
+}
+
+.valentines-day:hover .heart {
+  transform: translateY(-50px) rotate(-45deg);
+}
+
+.valentines-day:hover .text {
+  transform: translateY(-50px);
+}
+
+.side {
+  background: #eee;
+  height: 550px;
+  width: 400px;
+  padding: 10px;
+  position: absolute;  /* Control total de la posición */
+  top: 0;
+  left: 0;
+}
+.side.one {
+  width: 412px;
+  height: 723px;
+  background: linear-gradient(87deg, #fff, #fff 40%, #ddd);
+  position: absolute;
+  top: 433px;
+  left: 39px;
+  transform: skew(356deg, 356deg);
+  z-index: 1;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+  color: #333;
+  font-size: 18px;
+  overflow-y: auto;
+}
+
+
+
+.image-container {
+  writing-mode: horizontal-tb; /* Corrige la orientación */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+}
+
+.image-container img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+.resolution{
+  width: 90%;
+  
+
+}
+@media only screen and (max-width: 600px) {
+  .left-curtain, .right-curtain {
+    width: 100%;
+  }
+
+  .valentines-day, .envelope, #card {
+    width: 100%;
+    height: auto;
+  }
+}
+
+   
+
+
+
+
+/* Clase activa para transformar el elemento */
+.side.two.active {
+  transform: translateX(200px) skew(360deg, 6deg); /* Movimiento y skew nuevo */
+  opacity: 1;  /* Hacer visible el elemento */
+}
+
+/* Este es el nuevo recuadro que quieres hacer inclinado en sentido contrario */
+.side.two .opposite-box {
+  position: relative;
+  width: 250px;  /* Ajusta el ancho según lo que necesites */
+  height: 150px;  /* Ajusta la altura según lo que necesites */
+  transform: skew( 10deg, -20deg);  /* Inclinación opuesta */
+  background: linear-gradient(120deg, #f0f0f0, #fff);  /* Fondo suave para el recuadro */
+  margin-bottom: 20px;  /* Separación con el siguiente contenido */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  /* Añade sombra para mayor visibilidad */
+}
+.side.two h2, .side.two p {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  font-size: 1.2em;
+  background: transparent;
+  color: #333;
+  padding: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+body {
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: 'Sacramento', cursive;
+  background-color: #f1e3d3;
+  overflow: hidden;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  ::-webkit-scrollbar {
+    width: 12px;  /* Ancho de la scrollbar */
+    height: 12px;  /* Altura para la scrollbar horizontal */
+    a{
+      border-radius: 5px;
+      padding: 10px 7px;
+      text-decoration: none;
+      color: #fff;
+      background-color: #333;
+      margin: 5px;
+      
+    }
+  }
+}
+/* From Uiverse.io by Li-Deheng */ 
+.btn-conteiner {
+  display: flex;
+  justify-content: center;
+  --color-text: #ffffff;
+  --color-background: #ff135a;
+  --color-outline: #ff145b80;
+  --color-shadow: #00000080;
+}
+
+.btn-content {
+  display: flex;
+  align-items: center;
+  padding: 7px 36px;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  position: relative;
+  top: 1048px;
+  left: 241px;
+  font-size: 30px;
+  height: 74px;
+  width: 128px;
+  color: var(--color-text);
+  background: var(--color-background);
+  transition: 1s;
+  border-radius: 100px;
+  z-index: 2;
+  box-shadow: 0 0 0.2em 0 var(--color-background);
+}
+
+.btn-content:hover, .btn-content:focus {
+  transition: 0.5s;
+  -webkit-animation: btn-content 1s;
+  animation: btn-content 1s;
+  outline: 0.1em solid transparent;
+  outline-offset: 0.2em;
+  box-shadow: 0 0 0.4em 0 var(--color-background);
+}
+
+.btn-content .icon-arrow {
+  transition: 0.5s;
+  margin-right: 0px;
+  transform: scale(0.6);
+}
+
+.btn-content:hover .icon-arrow {
+  transition: 0.5s;
+  margin-right: 25px;
+}
+
+.icon-arrow {
+  width: 20px;
+  margin-left: 15px;
+  position: relative;
+  top: 6%;
+}
+  
+/* SVG */
+#arrow-icon-one {
+  transition: 0.4s;
+  transform: translateX(-60%);
+}
+
+#arrow-icon-two {
+  transition: 0.5s;
+  transform: translateX(-30%);
+}
+
+.btn-content:hover #arrow-icon-three {
+  animation: color_anim 1s infinite 0.2s;
+}
+
+.btn-content:hover #arrow-icon-one {
+  transform: translateX(0%);
+  animation: color_anim 1s infinite 0.6s;
+}
+
+.btn-content:hover #arrow-icon-two {
+  transform: translateX(0%);
+  animation: color_anim 1s infinite 0.4s;
+}
+
+/* SVG animations */
+@keyframes color_anim {
+  0% {
+    fill: white;
+  }
+
+  50% {
+    fill: var(--color-background);
+  }
+
+  100% {
+    fill: white;
+  }
+}
+
+/* Button animations */
+@-webkit-keyframes btn-content {
+  0% {
+    outline: 0.2em solid var(--color-background);
+    outline-offset: 0;
+  }
+}
+
+@keyframes btn-content {
+  0% {
+    outline: 0.2em solid var(--color-background);
+    outline-offset: 0;
+  }
+}
+.contenedor {
+  width: 80%;  /* o el tamaño que necesites */
+  max-width: 1200px;  /* para limitar el tamaño en pantallas grandes */
+  padding: 20px; 
+}
+
+.valentines-day {
+  position: relative;
+  cursor: pointer;
+}
+
+.envelope {
+  position: relative;
+  filter: drop-shadow(0 0 25px rgba(0, 0, 0, .3));
+}
+
+.text {
+  position: absolute;
+  font-family: arial;
+  letter-spacing: 5px;
+  text-align: center;
+  color: white;
+  z-index: 2;
+  top: 80px;
+  left: 15px;
+  transition: .5s;
+}
+
+
+.envelope {
+  position: relative;
+  filter: drop-shadow(0 0 25px rgba(0,0,0,.3));
+}
+
+.envelope:before {
+  content:"";
+  position: absolute;
+  width:254px;
+  height:254px;
+  background-color: #ff9494;
+  transform: rotate(-45deg);
+  border-radius: 0 15px 0 0;
+  left:-37px;
+  top:-82px;
+}
+
+.envelope:after {
+  content:"";
+  position: absolute;
+  background-color: #ff9494;
+  width:360px;
+  height:225px;
+  left:-90px;
+  top:45px;
+}
+
+.heart {
+  position: relative;
+  background-color: #e01911;
+  display: inline-block;
+  height: 180px;
+  top:50px;
+  left:0;
+  transform: rotate(-45deg);
+  width:180px;
+  filter: drop-shadow(0 -10px 25px rgba(0,0,0,.3));
+  transition: .5s;
+}
+
+.heart:before, .heart:after {
+  content:"";
+  background-color: #e01911;
+  border-radius:50%;
+  height: 180px;
+  width: 180px;
+  position: absolute;
+}
+
+.heart:before {
+  top:-100px;
+  left:0;}
+
+.heart:after {
+  left:100px;
+  top:0;}
+
+.front {
+  position: absolute;
+  width:0;
+  height:0;
+  border-right: 190px solid #fbd2d2;
+  border-top: 113px solid transparent;
+  border-bottom: 113px solid transparent;
+  top:44px;
+  left:80px;
+  z-index:4;
+}
+
+.front:before {
+  content:"";
+  position: absolute;
+  width:0;
+  height:0;
+  border-left: 190px solid #fbd2d2;
+  border-top: 113px solid transparent;
+  border-bottom: 113px solid transparent;
+  top:-113px;
+  left:-170px;
+}
+
+.front:after {
+  width:0;
+  height:0;
+  position: absolute;
+  content:"";
+  border-bottom: 150px solid #fce7e9;
+  border-right:180px solid transparent;
+  border-left: 180px solid transparent;
+  top:-36px;
+  left:-170px;
+}
+
+.text {
+  position: absolute;
+  font-family: arial;
+  letter-spacing:5px;
+  text-align: center;
+  color: white;
+  z-index:2;
+  top:80px;
+  left:15px;
+  transition: .5s;
+}
+
+.valentines-day:hover .heart {
+  transform: translateY(-50px) rotate(-45deg);
+}
+
+.valentines-day:hover .text {
+  transform: translateY(-50px);
+}
